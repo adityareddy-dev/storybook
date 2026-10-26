@@ -3,12 +3,9 @@ import { join } from 'node:path';
 
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
-import {
-  REACT_DOCGEN_FALLBACK_RANGE,
-  checkBuilderDocgenPackages,
-  getTypeScriptForDocgenError,
-} from 'storybook/internal/common';
+import { checkBuilderDocgenPackages, getTypeScriptForDocgenError } from 'storybook/internal/common';
 import { TypeScriptWithoutCompilerApiError } from 'storybook/internal/server-errors';
+import type { Options } from 'storybook/internal/types';
 
 import { REACT_BUILDER_DOCGEN_PACKAGES, prepareReactBuilderDocgen } from './builder-docgen.ts';
 
@@ -54,11 +51,6 @@ describe('REACT_BUILDER_DOCGEN_PACKAGES', () => {
       expect(packageJson.peerDependencies?.[name], name).toBe(REACT_BUILDER_DOCGEN_PACKAGES[name]);
       expect(packageJson.peerDependenciesMeta?.[name]?.optional, name).toBe(true);
     }
-  });
-
-  // TEMPORARY(ts-7.1): see `typescript-7-react-docgen-fallback.ts` in core.
-  it('match the react-docgen that init and upgrade add on TypeScript 7.0', () => {
-    expect(REACT_DOCGEN_FALLBACK_RANGE).toBe(REACT_BUILDER_DOCGEN_PACKAGES['react-docgen']);
   });
 });
 
@@ -123,7 +115,10 @@ describe('built output', () => {
 });
 
 describe('prepareReactBuilderDocgen', () => {
-  const options = { configDir: '/project/.storybook' };
+  const options = {
+    configDir: '/project/.storybook',
+    presets: { apply: async () => ({}) } as unknown as Options['presets'],
+  };
   const resolve = (specifier: string) => specifier;
 
   beforeEach(() => {
@@ -158,6 +153,7 @@ describe('prepareReactBuilderDocgen', () => {
         packages,
         builderDocgen: `typescript.reactDocgen: '${reactDocgen}'`,
         disableBuilderDocgen: 'typescript.reactDocgen: false',
+        apis: ['compiler', 'native'],
       })
     );
   });

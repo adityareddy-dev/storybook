@@ -1,3 +1,19 @@
+## 11.0.0-beta.1
+
+- CLI: Resolve owner-scoped pkg.pr.new canary specifiers - [#37139](https://github.com/storybookjs/storybook/pull/37139), thanks @Sidnioulz!
+- CLI: Scaffold CSF4 from storybook init - [#37125](https://github.com/storybookjs/storybook/pull/37125), thanks @ndelangen!
+- Core: ASCII-safe open-service static-snapshot filenames - [#37136](https://github.com/storybookjs/storybook/pull/37136), thanks @obvious-autobuild!
+- Core: Drop npmlog from node-logger - [#37159](https://github.com/storybookjs/storybook/pull/37159), thanks @kasperpeulen!
+- Core: Fix docgen and story docs for reserved ids, renamed files and selected stories - [#37157](https://github.com/storybookjs/storybook/pull/37157), thanks @JReinhold!
+- Core: Let StackBlitz embed the dev server again - [#37176](https://github.com/storybookjs/storybook/pull/37176), thanks @kasperpeulen!
+- Core: Prebundle `open` to drop 10 installed packages - [#37140](https://github.com/storybookjs/storybook/pull/37140), thanks @kasperpeulen!
+- Core: Show story-docs data that arrives after a subscription starts - [#37156](https://github.com/storybookjs/storybook/pull/37156), thanks @JReinhold!
+- React: Make react-docgen optional and drop builder docgen deps from the default install - [#37141](https://github.com/storybookjs/storybook/pull/37141), thanks @kasperpeulen!
+- Svelte: Remove stale CSF type augmentations - [#37137](https://github.com/storybookjs/storybook/pull/37137), thanks @obvious-autobuild!
+- Svelte: Update esrap to 2.x - [#37142](https://github.com/storybookjs/storybook/pull/37142), thanks @JReinhold!
+- Telemetry: Add VRT packages - [#37124](https://github.com/storybookjs/storybook/pull/37124), thanks @shilman!
+- Test: Bundle the test libraries and their types, upgrade to Vitest 5 - [#37143](https://github.com/storybookjs/storybook/pull/37143), thanks @kasperpeulen!
+
 ## 11.0.0-beta.0
 
 - Astro: Add init support, doc mention and ecosystem CI sandbox - [#37122](https://github.com/storybookjs/storybook/pull/37122), thanks @Sidnioulz!

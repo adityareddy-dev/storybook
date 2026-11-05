@@ -38,9 +38,9 @@ const createStorybookProgram = program
   .option('-s --skip-install', 'Skip installing deps')
   .option(
     '--install-typescript',
-    'Add TypeScript, which docgen needs, when the project has none, without asking'
+    'Add TypeScript, which docgen needs, when the project has none, or upgrade a React project from TypeScript 7.0 to 7.1, without asking'
   )
-  .option('--no-install-typescript', 'Do not add TypeScript when the project has none')
+  .option('--no-install-typescript', 'Do not add or upgrade TypeScript')
   .addOption(
     new Option('--package-manager <type>', 'Force package manager for installing deps').choices(
       Object.values(PackageManagerName)
